@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  nest_postgres:
+    image: postgres:14
+    container_name: nest_postgres
+    ports:
+      - '5432:5432'
+    env_file:
+      - .env
+    volumes:
+      - nest_pg_data:/var/lib/postgresql/data
+
+  nest_pg_admin:
+    image: dpage/pgadmin4
+    container_name: nest_pg_admin
+    ports:
+      - '5000:80'
+    env_file:
+      - .env
+    volumes:
+      - nest_pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+
+volumes:
+  nest_pg_data: {}
+  nest_pgadmin_data: {}
