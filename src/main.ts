@@ -15,7 +15,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Cloud storage')
-    .setDescription('First NEST cloud storage')
+    .setDescription('NEST cloud storage')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);

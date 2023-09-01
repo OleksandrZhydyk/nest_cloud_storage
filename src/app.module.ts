@@ -9,6 +9,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './users/entities/user.entity';
 import { FileEntity } from './files/entities/file.entity';
 import { AuthModule } from './auth/auth.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import * as path from 'path';
 
 @Module({
   imports: [
@@ -22,6 +24,9 @@ import { AuthModule } from './auth/auth.module';
       entities: [UserEntity, FileEntity],
       synchronize: true,
     }),
+    // ServeStaticModule.forRoot({
+    //   renderPath: path.resolve(__dirname, '..', 'static'),
+    // }),
     UsersModule,
     FilesModule,
     AuthModule,

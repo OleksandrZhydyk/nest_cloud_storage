@@ -25,6 +25,9 @@ export class FileEntity {
   @Column()
   mimetype: string;
 
+  @Column()
+  path: string;
+
   @ManyToOne(() => UserEntity, (user) => user.files)
   user: UserEntity;
 
